@@ -1,14 +1,16 @@
+<a href="#" class="link-post-full">
 <div class="main-content">
     <div class="post">
+        {% if post.cover %}
         <div class="post-image">
-            <img src="teste.jpg" alt="Post Image">
+            <img src="{{ post.cover.url }}" alt="Post Image">
         </div>
+        {% endif %}
         <div class="post-content">
-            <h2>Post Title</h2>
-            <p>It is a long established fact that a reader will be distracted by the readable content of a page
-                when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                distribution of letters, as opposed to using 'Content here, content here'</p>
-            <p>Data post</p>
+            <h2> {{ post.title }} </h2>
+            <p> {{ post.description }} </p>
+            <p class="date-post">{{ post.created_at|date:"d/m/Y" }} às {{ post.created_at|date:"H:i" }} </p>
         </div>
     </div>
 </div>
+</a>

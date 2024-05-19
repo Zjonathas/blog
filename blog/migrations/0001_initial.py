@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
                 ('content', models.TextField()),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
-                ('is_plublished', models.BooleanField(default=False)),
+                ('is_published', models.BooleanField(default=False)),
                 ('slug', models.SlugField(unique=True)),
                 ('cover', models.ImageField(blank=True, default='', upload_to='blog/covers/%Y/%m/%d/')),
                 ('author', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to=settings.AUTH_USER_MODEL)),

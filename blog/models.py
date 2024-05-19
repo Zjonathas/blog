@@ -16,7 +16,7 @@ class Post(models.Model):
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    is_plublished = models.BooleanField(default=False)
+    is_published = models.BooleanField(default=False)
     slug = models.SlugField(unique=True)
     cover = models.ImageField(upload_to='blog/covers/%Y/%m/%d/', blank=True, default='') # noqa E501
 

@@ -46,6 +46,14 @@ body {
     background-color: #6666661c;
 }
 
+.link-post-full {
+    color: var(--color-dark-blue);
+}
+
+.date-post {
+    color: var(--color-light-gray);
+}
+
 /* Header Styles */
 
 .space-between {

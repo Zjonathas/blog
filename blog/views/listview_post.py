@@ -7,7 +7,7 @@ class PostListViewBase(ListView):
     model = Post
     template_name = 'blog/page/home.html'
     context_object_name = 'posts'
-    paginate_by = 5
+    paginate_by = 9
     ordering = ['-created_at']
 
     def get_queryset(self):

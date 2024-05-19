@@ -1,13 +1,17 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 from blog.models import Post
+from utils.pagination import make_pagination
+import os
+
+
+PER_PAGE = int(os.environ.get('PER_PAGE', 9))
 
 
 class PostListViewBase(ListView):
     model = Post
     template_name = 'blog/page/home.html'
     context_object_name = 'posts'
-    paginate_by = 9
     ordering = ['-created_at']
 
     def get_queryset(self):
@@ -17,8 +21,20 @@ class PostListViewBase(ListView):
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
-        print(context.get('posts'))
-        return {'posts': context.get('posts')}
+        page_obj, pagination_range = make_pagination(
+            self.request,
+            context.get('posts'),
+            PER_PAGE,
+        )
+        context.update(
+            {
+                'posts': page_obj,
+                'page_obj': pagination_range,
+            }
+
+        )
+        print(pagination_range)
+        return context
 
 
 class PostListViewHome(PostListViewBase):

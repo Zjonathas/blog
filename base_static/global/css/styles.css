@@ -54,6 +54,41 @@ body {
     color: var(--color-light-gray);
 }
 
+.effect-square {
+    background-color: var(--color-dark-blue);
+    font-weight: bold;
+    font-size: var(--medium-font-size);
+    text-align: center;
+    display: inline;
+}
+
+/* Pagination */
+
+.pagination-content {
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    gap: 1rem 0.5rem;
+    margin: var(--medium-margin);
+}
+
+.pagination .page-item {
+    background: var(--color-gray);
+    color: white;
+    padding: 0.5rem 1rem;
+}
+
+.pagination .page-link {
+    text-decoration: none;
+    background: var(--color-dark-blue);
+    color: white;
+}
+
+.pagination .page-current {
+    background: var(--color-dark-blue);
+}
+
+
 /* Header Styles */
 
 .space-between {

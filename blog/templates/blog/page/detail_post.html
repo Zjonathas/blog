@@ -1,0 +1,21 @@
+{% extends "global/base.html" %}
+{% block title %}Detail | {% endblock%}
+
+{% block content %}
+<main class="main-detail">
+    <div class="container-detail-post">
+        <div class="container-image-detail-post">
+            <img src="{{ post.cover.url }}" alt="imagem do post">
+            <p>By: pixabay.com</p>
+        </div>
+        <div class="container-content-detail-post">
+            <h2>{{ post.title }}</h2>
+            <p class="content-detail-post">
+                {{ post.content }}
+            </p>
+
+            <p> Última atualização - {{post.updated_at}}</p>
+        </div>
+    </div>
+</main>
+{% endblock content%}

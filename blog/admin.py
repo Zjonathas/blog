@@ -1,10 +1,10 @@
 from django.contrib import admin
 from .models import Post
-
+from django_summernote.admin import SummernoteModelAdmin
 
 # Register your models here.
 @admin.register(Post)
-class PostAdmin(admin.ModelAdmin):
+class PostAdmin(SummernoteModelAdmin):
     list_display = (
         'title', 'description', 'created_at',
         'updated_at', 'is_published', 'author'
@@ -16,3 +16,4 @@ class PostAdmin(admin.ModelAdmin):
     list_editable = ('is_published',)
     ordering = ('-created_at',)
     prepopulated_fields = {'slug': ('title',)}
+    summernote_fields = ('content',)

@@ -294,4 +294,12 @@ body {
     .main-container {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
+
+    .container-image-detail-post img {
+        max-width: 100%;
+    }
+
+    .container-content-detail-post img p {
+        max-width: 50%;
+    }
 }

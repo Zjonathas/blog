@@ -4,10 +4,12 @@
 {% block content %}
 <main class="main-detail">
     <div class="container-detail-post">
+        {% if post.cover %}
         <div class="container-image-detail-post">
             <img src="{{ post.cover.url }}" alt="imagem do post">
             <p>By: pixabay.com</p>
         </div>
+        {% endif %}
         <div class="container-content-detail-post">
             <h2>{{ post.title }}</h2>
             <p class="content-detail-post">

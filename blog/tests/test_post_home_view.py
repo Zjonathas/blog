@@ -1,6 +1,6 @@
 from django.urls import resolve, reverse
 from blog import views
-from test_post_base import PostTestBase
+from .test_post_base import PostTestBase
 from unittest.mock import patch
 
 

@@ -33,7 +33,7 @@ class PostListViewBase(ListView):
             }
 
         )
-        print(pagination_range)
+
         return context
 
 

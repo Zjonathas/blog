@@ -1,4 +1,4 @@
-from test_post_base import PostTestBase
+from .test_post_base import PostTestBase
 from blog.models import Post
 from django.core.exceptions import ValidationError
 from parameterized import parameterized

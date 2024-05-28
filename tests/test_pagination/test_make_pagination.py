@@ -18,3 +18,18 @@ class MakePaginationTest(PostTestBase):
         )
 
         self.assertEqual(pag_obj.number, 1)
+
+    def test_make_pagination_current_page_invalid_returns_first_page(self):
+        # Need a post for this test
+        self.make_post()
+        response = self.client.get(reverse('blog:home'))
+        response.wsgi_request.GET = {'page': 'invalid'}
+
+        pag_obj, pagination_range = make_pagination(
+            request=response.wsgi_request,
+            queryset=Post.objects.all(),
+            per_page=1,
+            qty_pages=4,
+        )
+
+        self.assertEqual(pag_obj.number, 1)

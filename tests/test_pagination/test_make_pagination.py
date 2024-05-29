@@ -12,7 +12,7 @@ class MakePaginationTest(PostTestBase):
 
         pag_obj, pagination_range = make_pagination(
             request=response.wsgi_request,
-            queryset=Post.objects.all(),
+            queryset=Post.objects.all().order_by('-created_at'),
             per_page=1,
             qty_pages=4,
         )
@@ -24,10 +24,9 @@ class MakePaginationTest(PostTestBase):
         self.make_post()
         response = self.client.get(reverse('blog:home'))
         response.wsgi_request.GET = {'page': 'invalid'}
-
         pag_obj, pagination_range = make_pagination(
             request=response.wsgi_request,
-            queryset=Post.objects.all(),
+            queryset=Post.objects.all().order_by('-created_at'),
             per_page=1,
             qty_pages=4,
         )

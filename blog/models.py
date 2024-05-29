@@ -26,7 +26,7 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("blog:post", args={self.id})
+        return reverse("blog:detail_post", args={self.id})
 
     @staticmethod
     def resize_image(image, new_width=800):

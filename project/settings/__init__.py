@@ -7,3 +7,4 @@ from .database import *
 from .security import *
 from .assets import *
 from .i18n import *
+from .debug_toolbar import *

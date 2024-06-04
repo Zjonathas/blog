@@ -5,11 +5,11 @@ from blog.models import Post, User
 class PostMixin:
     def make_author(
             self,
-            username='test',
-            first_name='Test',
-            last_name='Test',
-            password='test',
-            email='teste',
+            username='test12121221122',
+            first_name='Test12',
+            last_name='Test12',
+            password='test12',
+            email='teste12',
             ):
         return User.objects.create_user(
             username=username,

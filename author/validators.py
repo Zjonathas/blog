@@ -9,7 +9,7 @@ class AuthorPostFormValidator:
         self.data = data
         self.clean()
 
-    def clean(self):
+    def clean(self, *args, **kwargs):
         self.clean_title()
         self.clean_content()
         self.clean_description()
@@ -19,9 +19,8 @@ class AuthorPostFormValidator:
         description = cleaned_data.get('description')
 
         if title == description:
-            self.errors['description'].append(
-                'Description must be different from title'
-                )
+            self.errors['title'].append('Cannot be equal to description')
+            self.errors['description'].append('Cannot be equal to title')
 
         if self.errors:
             raise self.ErrorClass(self.errors)

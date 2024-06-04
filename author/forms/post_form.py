@@ -3,6 +3,7 @@ from collections import defaultdict
 from blog.models import Post
 from utils.django_forms import add_attr
 from author.validators import AuthorPostFormValidator
+from django.core.exceptions import ValidationError
 
 
 class PostForm(forms.ModelForm):
@@ -23,5 +24,5 @@ class PostForm(forms.ModelForm):
 
     def clean(self, *args, **kwargs):
         super_clean = super().clean(*args, **kwargs)
-        AuthorPostFormValidator(self.cleaned_data, ErrorClass=self.my_errors)
+        AuthorPostFormValidator(self.cleaned_data, ErrorClass=ValidationError)
         return super_clean

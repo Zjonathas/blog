@@ -2,11 +2,13 @@
 {% block title %}Home | {% endblock%}
 
 {% block content %}
-{% for post in posts %}
-    {% include "blog/partials/post.html" %}
-    {% empty %}
-        <div class="center m-y">
-            <p>No posts found here</p>
-        </div>
-{% endfor %}
+<div class="main-container">
+    {% for post in posts %}
+        {% include "blog/partials/post.html" %}
+        {% empty %}
+            <div class="center m-y">
+                <p>No posts found here</p>
+            </div>
+    {% endfor %}
+</div>
 {% endblock content%}

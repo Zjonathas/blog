@@ -23,6 +23,7 @@ import os
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
+    path('author/', include('author.urls')),
     path('summernote/', include('django_summernote.urls')),
 ]
 

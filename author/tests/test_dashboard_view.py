@@ -133,8 +133,58 @@ class DashboardPostTest(AuthorLoginRequiredTest):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.context.get('form').errors.get('title'), msg)
 
-    # def test_dashboard_edit_post_id_does_not_exist(self):
-    #     self.client.login(username='test_login1', password='test')
-    #     response = self.client.get(reverse('author:edit_post',
-    #                                        kwargs={'id': 9}))
-    #     self.assertEqual(response.content.decode('utf-8'), 'Post not found')
+    def test_dashboard_create_post_if_dont_title(self):
+        response = self.client.post(reverse('author:create_post'),
+                                    data={
+                                        'description': 'Test',
+                                        'content': 'Test',
+                                    }, follow=True)
+        msg = ['Este campo é obrigatório.', 'Title is required']
+        self.assertEqual(response.context.get('form').errors.get('title'), msg)
+
+    def test_dashboard_create_post_if_title_is_less_5_characters(self):
+        response = self.client.post(reverse('author:create_post'),
+                                    data={
+                                        'title': 'Tes',
+                                        'description': 'Test',
+                                        'content': 'Test',
+                                    }, follow=True)
+        msg = ['Title must be at least 5 characters']
+        self.assertEqual(response.context.get('form').errors.get('title'), msg)
+
+    def test_dashboard_create_post_if_dont_description(self):
+        response = self.client.post(reverse('author:create_post'),
+                                    data={
+                                        'title': 'Test21',
+                                        'content': 'Test',
+                                    }, follow=True)
+        msg = ['Este campo é obrigatório.', 'Description is required']
+        self.assertEqual(
+            response.context.get('form').errors.get('description'),
+            msg
+            )
+
+    def test_dashboard_create_post_if_dont_content(self):
+        response = self.client.post(reverse('author:create_post'),
+                                    data={
+                                        'title': 'Test21',
+                                        'description': 'Test',
+                                    }, follow=True)
+        msg = ['Este campo é obrigatório.', 'Content is required']
+        self.assertEqual(
+            response.context.get('form').errors.get('content'),
+            msg
+            )
+
+    def test_dashboard_create_post_if_content_is_less_10_characters(self):
+        response = self.client.post(reverse('author:create_post'),
+                                    data={
+                                        'title': 'Test21',
+                                        'description': 'Test',
+                                        'content': 'Test',
+                                    }, follow=True)
+        msg = ['Content must be at least 10 characters']
+        self.assertEqual(
+            response.context.get('form').errors.get('content'),
+            msg
+            )

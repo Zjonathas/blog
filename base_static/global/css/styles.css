@@ -340,11 +340,15 @@ body {
 .container-content-detail-post {
     display: flex;
     flex-direction: column;
+    font-size: var(--medium-font-size);
+    color: var(--color-gray);
+    text-align: justify;
     gap: var(--large-margin);
 }
 
 .container-content-detail-post h2 {
     font-size: var(--large-font-size);
+    color: var(--color-dark-blue);
 }
 
 .container-content-detail-post p {
@@ -355,13 +359,6 @@ body {
     text-align: justify;
 }
 
-
-.main-detail {
-    display: flex;
-    flex-direction: column;
-    gap: var(--large-margin);
-    align-items: center;
-}
 
 /* Reponsive */
 

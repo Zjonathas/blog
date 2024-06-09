@@ -2,7 +2,6 @@
 {% block title %}Detail | {% endblock%}
 
 {% block content %}
-<main class="main-detail">
     <div class="container-detail-post">
         {% if post.cover %}
         <div class="container-image-detail-post">
@@ -12,10 +11,11 @@
         {% endif %}
         <div class="container-content-detail-post">
             <h2>{{ post.title }}</h2>
-                {{ post.content|safe }}
+                <p>
+                    {{ post.content|safe }}
+                </p>
 
             <p> Última atualização - {{post.updated_at}}</p>
         </div>
     </div>
-</main>
 {% endblock content%}

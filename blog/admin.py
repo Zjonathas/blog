@@ -7,7 +7,7 @@ from django_summernote.admin import SummernoteModelAdmin
 class PostAdmin(SummernoteModelAdmin):
     list_display = (
         'title', 'description', 'created_at',
-        'updated_at', 'is_published', 'author'
+        'updated_at', 'is_published', 'author', 'id'
         )
     list_display_links = ('title', 'description')
     search_fields = ('title', 'description', 'content', 'id', 'slug')

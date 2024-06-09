@@ -4,6 +4,8 @@ from blog.models import Post
 from utils.django_forms import add_attr
 from author.validators import AuthorPostFormValidator
 from django.core.exceptions import ValidationError
+from django_summernote.fields import SummernoteTextField
+from django_summernote.widgets import SummernoteWidget
 
 
 class PostForm(forms.ModelForm):
@@ -17,9 +19,9 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['title', 'content', 'description', 'cover']
-
         widgets = {
             'cover': forms.FileInput(attrs={'class': 'span2'}),
+            'content': SummernoteWidget(attrs={'class': 'span12'}),
         }
 
     def clean(self, *args, **kwargs):

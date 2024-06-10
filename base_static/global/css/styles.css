@@ -352,13 +352,14 @@ body {
 }
 
 .container-content-detail-post p {
-    display: flex;
-    flex-direction: column;
     font-size: var(--medium-font-size);
     color: var(--color-gray);
     text-align: justify;
 }
 
+.container-content-detail-post div>ul {
+    padding-left: 4rem;
+}
 
 /* Reponsive */
 

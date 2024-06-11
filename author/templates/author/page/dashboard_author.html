@@ -1,0 +1,17 @@
+{% extends "global/base.html" %}
+{% block title %}Dashboard | {% endblock title %}
+
+{% block content %}
+<div class="main-container-dashboard">
+    <h2>Dashboard {{ profile }}</h2>
+    <div class="main-container">
+        {% for post in posts %}
+            {% include "author/partials/post.html" %}
+            {% empty %}
+                <div class="center m-y">
+                    <p>No posts found here</p>
+                </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content%}

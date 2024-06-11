@@ -266,6 +266,20 @@ body {
     justify-items: center;
 }
 
+.main-container-dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: var(--medium-margin);
+    margin: var(--large-padding);
+    justify-items: center;
+    align-items: center;
+}
+
+.main-container-dashboard h2 {
+    font-size: var(--large-font-size);
+    color: var(--color-dark-blue);
+}
+
 .post {
     background-color: white;
     border-radius: var(--border-radius);

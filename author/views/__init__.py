@@ -1,1 +1,2 @@
 from .dashboard_post import DashboardPost
+from .dashboard_author import DashboardAuthorIsPublished

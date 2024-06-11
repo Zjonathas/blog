@@ -10,4 +10,9 @@ urlpatterns = [
         views.DashboardPost.as_view(),
         name='edit_post'
         ),
+    path(
+        'dashboard/',
+        views.DashboardAuthorIsPublished.as_view(),
+        name='dashboard_author_is_published'
+        ),
 ]

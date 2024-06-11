@@ -8,7 +8,6 @@ from django.urls import reverse
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 
-
 @method_decorator(login_required(
     login_url='blog:home', redirect_field_name='next'), name='dispatch')
 class DashboardPost(View):

@@ -1,0 +1,16 @@
+<div class="main-content">
+    <div class="post">
+        {% if post.cover %}
+            <div class="post-image">
+                <img src="{{ post.cover.url }}" alt="Post Image">
+            </div>
+        {% endif %}
+        <div class="post-content">
+            <h2> {{ post.title }} </h2>
+            <p> {{ post.description }} </p>
+            <a href="{% url "author:detail_post_unpublished" post.id %}" > See more </a>
+            <a href="{% url "author:edit_post" post.id%}" >Edit post</a>
+            <p class="date-post">{{ post.created_at|date:"d/m/Y" }} às {{ post.created_at|date:"H:i" }} </p>
+        </div>
+    </div>
+</div>

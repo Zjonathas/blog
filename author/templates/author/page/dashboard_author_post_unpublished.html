@@ -3,11 +3,11 @@
 
 {% block content %}
 <div class="main-container-dashboard">
-    <a href="{% url "author:dashboard_author_unpublished" %}">Click here for unpublished post</a>
+    <a href="{% url "author:dashboard_author_is_published" %}">Click here for published post</a>
     <h2>Dashboard {{ profile }}</h2>
     <div class="main-container">
         {% for post in posts %}
-            {% include "author/partials/post.html" %}
+            {% include "author/partials/unpublished_post.html" %}
             {% empty %}
                 <div class="center m-y">
                     <p>No posts found here</p>

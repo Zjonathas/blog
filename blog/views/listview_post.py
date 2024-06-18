@@ -65,3 +65,7 @@ class PostListViewSearch(PostListViewBase):
             }
         )
         return context
+
+
+class PostListViewPhotos(PostListViewBase):
+    template_name = 'blog/page/photos.html'

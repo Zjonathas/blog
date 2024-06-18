@@ -1,0 +1,14 @@
+{% extends "global/base.html" %}
+{% block title %}Photos | {% endblock%}
+
+{% block content %}
+<div class="main-container">
+    {% for post in posts %}
+        {% include "blog/partials/post_photos.html" %}
+        {% empty %}
+            <div class="center m-y">
+                <p>No posts found here</p>
+            </div>
+    {% endfor %}
+</div>
+{% endblock content%}

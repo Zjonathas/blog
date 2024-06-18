@@ -1,4 +1,5 @@
 from django.views import View
+from django.views.generic import DetailView
 from django.http.response import Http404
 from blog.models import Post
 from author.forms.post_form import PostForm
@@ -17,7 +18,7 @@ class DashboardPost(View):
         if id is not None:
             try:
                 post = Post.objects.filter(
-                    is_published=True, author=self.request.user, pk=id
+                    author=self.request.user, pk=id
                 ).first()
             except Post.DoesNotExist:
                 raise Http404('Post not found')
@@ -52,3 +53,25 @@ class DashboardPost(View):
             messages.success(request, 'Post saved successfully')
             return redirect(reverse('blog:home'))
         return self.render_post(form)
+
+
+@method_decorator(login_required(
+    login_url='blog:home', redirect_field_name='next'), name='dispatch')
+class DetailPostUnpublished(DetailView):
+    model = Post
+    template_name = 'blog/page/detail_post.html'
+    context_object_name = 'post'
+
+    def get_queryset(self, *args, **kwargs):
+        qs = super().get_queryset(*args, **kwargs)
+        qs = qs.filter(
+            is_published=False
+        )
+        return qs
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context.update({
+            'is_detail_page': True
+        })
+        return context

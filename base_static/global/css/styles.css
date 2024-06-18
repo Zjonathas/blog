@@ -183,6 +183,13 @@ body {
 
 .ul-bar li {
     font-size: var(--small-font-size);
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    padding: var(--small-padding);
+    border-radius: var(--border-radius);
+    width: 120px;
 }
 
 .ul-bar li a {

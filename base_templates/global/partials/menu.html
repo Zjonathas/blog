@@ -1,8 +1,12 @@
 <div class="space-between">
     <nav class="nav-bar">
         <ul class="ul-bar">
-            <li><a href="#">Videos</a></li>
-            <li><a href="#">Photos</a></li>
+            <li><a href="{% url "blog:home" %}">Home</a></li>
+            <li><a href="{% url "blog:photos" %}">Photos</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="{% url "author:create_post" %}">New Post</a></li>
+                <li><a href="{% url "author:dashboard_author_is_published" %}">Dashboard</a></li>
+            {% endif %}
         </ul>
     </nav>
     
